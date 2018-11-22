@@ -13,6 +13,7 @@ public class TimeController : MonoBehaviour
 
     public bool IsPaused { get; private set; }
 
+    public event Action<float> OnTick;
 
     public enum Speed
     {
@@ -88,5 +89,10 @@ public class TimeController : MonoBehaviour
         }
 
         CurrentTime += Time.deltaTime;
+
+        if (OnTick != null)
+        {
+            OnTick(Time.deltaTime);
+        }
     }
 }
