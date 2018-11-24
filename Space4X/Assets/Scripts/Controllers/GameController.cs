@@ -3,8 +3,9 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    public static GameController Instance;
 
-    protected Galaxy CurrentGalaxy;
+    public Galaxy CurrentGalaxy { get; private set; }
 
     public void NewGame()
     {
@@ -13,6 +14,19 @@ public class GameController : MonoBehaviour
         MainViewController.Instance.ShowSystemView();
     }
 
+    private void OnEnable()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            Debug.LogError("Multiple GameControllers in scene!");
+            gameObject.SetActive(false);
+            return;
+        }
+    }
     private void Start()
 	{
 	    NewGame();

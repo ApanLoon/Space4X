@@ -905,6 +905,7 @@ Transform:
   m_Children:
   - {fileID: 170076735}
   - {fileID: 534669905}
+  - {fileID: 1246562130}
   m_Father: {fileID: 254354666}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -920,6 +921,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SkyboxMaterial: {fileID: 2100000, guid: b6a3f8bca2c865243929bac258c89b96, type: 2}
+  StarSystemPrefab: {fileID: 1394410223974578, guid: cc56c5a15837ade428d9de6986ad5a72,
+    type: 2}
 --- !u!1 &718114754
 GameObject:
   m_ObjectHideFlags: 0
@@ -1228,6 +1231,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AllowSwitchOff: 0
+--- !u!1 &1246562129
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1246562130}
+  m_Layer: 0
+  m_Name: StarSystems
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1246562130
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1246562129}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 653450415}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1250919217
 GameObject:
   m_ObjectHideFlags: 0
