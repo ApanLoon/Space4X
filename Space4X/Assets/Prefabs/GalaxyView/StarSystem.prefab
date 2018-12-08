@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4659344645608528}
-  - component: {fileID: 114195690969926816}
+  - component: {fileID: 114365319377255664}
   m_Layer: 0
   m_Name: StarSystem
   m_TagString: Untagged
@@ -151,7 +151,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1528231977994602}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114195690969926816
+--- !u!114 &114365319377255664
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}

@@ -1,11 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-[System.Serializable]
-public class StarSystem
+namespace Space4X.Simulation
 {
-    public string Name { get; set; }
-    public Vector3 Position { get; set; }
+    [System.Serializable]
+    public class StarSystem
+    {
+        public string Name { get; set; }
+        public Vector3 Position { get; set; }
 
+    }
 }

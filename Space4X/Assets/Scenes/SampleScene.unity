@@ -1155,6 +1155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64e527691f7c6624c82d4fec16b4c928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Camera: {fileID: 534669904}
   SkyboxMaterial: {fileID: 2100000, guid: b6a3f8bca2c865243929bac258c89b96, type: 2}
   StarSystemPrefab: {fileID: 1394410223974578, guid: cc56c5a15837ade428d9de6986ad5a72,
     type: 2}

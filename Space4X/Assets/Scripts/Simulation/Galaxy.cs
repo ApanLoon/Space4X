@@ -1,86 +1,89 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Space4X.Controllers;
 using UnityEngine;
 
-public enum GalaxyType
+namespace Space4X.Simulation
 {
-    Spiral,
-    Elliptical,
-    Irregular
-}
-
-public enum GalaxySize
-{
-    Small,
-    Medium,
-    Large,
-    Enormous
-}
-
-[System.Serializable]
-public class Galaxy
-{
-    public string Name { get; set; }
-    public GalaxyType Type { get; protected set; }
-    public GalaxySize Size { get; protected set; } 
-    public List<StarSystem> StarSystems = new List<StarSystem>();
-
-    public Galaxy(GalaxyType type, GalaxySize size)
+    public enum GalaxyType
     {
-        Type = type;
-        Size = size;
-
-        GenerateStarSystems();
-
-        TimeController.Instance.OnTick += OnTick;
+        Spiral,
+        Elliptical,
+        Irregular
     }
 
-    public void Destroy()
+    public enum GalaxySize
     {
-        TimeController.Instance.OnTick -= OnTick;
+        Small,
+        Medium,
+        Large,
+        Enormous
     }
 
-    protected static Dictionary<GalaxySize, int> NumStarSystemsForSize = new Dictionary<GalaxySize, int>()
+    [System.Serializable]
+    public class Galaxy
     {
-        {GalaxySize.Small, 100},
-        {GalaxySize.Medium, 250},
-        {GalaxySize.Large, 500},
-        {GalaxySize.Enormous, 1000}
-    };
+        public string Name { get; set; }
+        public GalaxyType Type { get; protected set; }
+        public GalaxySize Size { get; protected set; } 
+        public List<StarSystem> StarSystems = new List<StarSystem>();
 
-    protected void OnTick(float deltaTime)
-    {
-
-    }
-
-    protected void GenerateStarSystems()
-    {
-        for (int i = 0; i < NumStarSystemsForSize[Size]; i++)
+        public Galaxy(GalaxyType type, GalaxySize size)
         {
-            StarSystem system = new StarSystem();
-            StarSystems.Add(system);
+            Type = type;
+            Size = size;
 
-            //TODO: Generate a name procedurally
-            system.Name = "System " + i;
+            GenerateStarSystems();
 
-            Vector3 pos = Vector3.zero;
-            switch (Type)
+            TimeController.Instance.OnTick += OnTick;
+        }
+
+        public void Destroy()
+        {
+            TimeController.Instance.OnTick -= OnTick;
+        }
+
+        protected static Dictionary<GalaxySize, int> NumStarSystemsForSize = new Dictionary<GalaxySize, int>()
+        {
+            {GalaxySize.Small, 100},
+            {GalaxySize.Medium, 250},
+            {GalaxySize.Large, 500},
+            {GalaxySize.Enormous, 1000}
+        };
+
+        protected void OnTick(float deltaTime)
+        {
+
+        }
+
+        protected void GenerateStarSystems()
+        {
+            for (int i = 0; i < NumStarSystemsForSize[Size]; i++)
             {
-                case GalaxyType.Spiral:
-                    //TODO: Figure out a random distribution for a spiral galaxy
-                    float s = NumStarSystemsForSize[Size];
-                    float h = s * 0.2f;
-                    pos = new Vector3(Random.Range(-s, s), Random.Range(-h, h), Random.Range(-s, s));
-                    break;
-                case GalaxyType.Elliptical:
-                    //TODO: Figure out a random distribution for an ellipse galaxy
-                    break;
-                case GalaxyType.Irregular:
-                    //TODO: Figure out a random distribution for an irregular galaxy
-                    break;
-            }
+                StarSystem system = new StarSystem();
+                StarSystems.Add(system);
 
-            system.Position = pos;
+                //TODO: Generate a name procedurally
+                system.Name = "System " + i;
+
+                Vector3 pos = Vector3.zero;
+                switch (Type)
+                {
+                    case GalaxyType.Spiral:
+                        //TODO: Figure out a random distribution for a spiral galaxy
+                        float s = NumStarSystemsForSize[Size];
+                        float h = s * 0.2f;
+                        pos = new Vector3(Random.Range(-s, s), Random.Range(-h, h), Random.Range(-s, s));
+                        break;
+                    case GalaxyType.Elliptical:
+                        //TODO: Figure out a random distribution for an ellipse galaxy
+                        break;
+                    case GalaxyType.Irregular:
+                        //TODO: Figure out a random distribution for an irregular galaxy
+                        break;
+                }
+
+                system.Position = pos;
+            }
         }
     }
 }

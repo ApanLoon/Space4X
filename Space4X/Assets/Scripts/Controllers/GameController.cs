@@ -1,38 +1,41 @@
-﻿
+﻿using Space4X.Simulation;
 using UnityEngine;
 
-public class GameController : MonoBehaviour
+namespace Space4X.Controllers
 {
-    public static GameController Instance;
-
-    public Galaxy CurrentGalaxy { get; private set; }
-
-    public void NewGame()
+    public class GameController : MonoBehaviour
     {
-        CurrentGalaxy = new Galaxy(GalaxyType.Spiral, GalaxySize.Small);
+        public static GameController Instance;
 
-        // Select home system and go into system view:
-        SelectionController.Instance.Select(CurrentGalaxy.StarSystems[0]);
-        //MainViewController.Instance.ShowSystemView();
-        MainViewController.Instance.ShowGalaxyView();
+        public Galaxy CurrentGalaxy { get; private set; }
 
-    }
-
-    private void OnEnable()
-    {
-        if (Instance == null)
+        public void NewGame()
         {
-            Instance = this;
+            CurrentGalaxy = new Galaxy(GalaxyType.Spiral, GalaxySize.Small);
+
+            // Select home system and go into system view:
+            SelectionController.Instance.Select(CurrentGalaxy.StarSystems[0]);
+            //MainViewController.Instance.ShowSystemView();
+            MainViewController.Instance.ShowGalaxyView();
+
         }
-        else if (Instance != this)
+
+        private void OnEnable()
         {
-            Debug.LogError("Multiple GameControllers in scene!");
-            gameObject.SetActive(false);
-            return;
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            else if (Instance != this)
+            {
+                Debug.LogError("Multiple GameControllers in scene!");
+                gameObject.SetActive(false);
+                return;
+            }
+        }
+        private void Start()
+        {
+            NewGame();
         }
     }
-    private void Start()
-	{
-	    NewGame();
-	}
 }

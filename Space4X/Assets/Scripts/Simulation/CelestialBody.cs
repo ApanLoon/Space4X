@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-[System.Serializable]
-public class CelestialBody
+﻿namespace Space4X.Simulation
 {
+    [System.Serializable]
+    public class CelestialBody
+    {
 
+    }
 }

@@ -1,42 +1,44 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro.EditorUtilities;
+﻿using System.Collections.Generic;
+using Space4X.Simulation;
 using UnityEngine;
 
-public class SelectionController : MonoBehaviour
+namespace Space4X.Controllers
 {
-    public static SelectionController Instance;
-
-    public List<StarSystem> SelectedStarSystems
+    public class SelectionController : MonoBehaviour
     {
-        get { return selecteStarSystems;}
-    }
-    protected List<StarSystem> selecteStarSystems = new List<StarSystem>();
+        public static SelectionController Instance;
 
-    public void Select(StarSystem system, bool add = false)
-    {
-        if (!add)
+        public List<StarSystem> SelectedStarSystems
         {
-            SelectedStarSystems.Clear();
+            get { return selecteStarSystems;}
+        }
+        protected List<StarSystem> selecteStarSystems = new List<StarSystem>();
+
+        public void Select(StarSystem system, bool add = false)
+        {
+            if (!add)
+            {
+                SelectedStarSystems.Clear();
+            }
+
+            if (!SelectedStarSystems.Contains(system))
+            {
+                SelectedStarSystems.Add(system);
+            }
         }
 
-        if (!SelectedStarSystems.Contains(system))
+        private void OnEnable()
         {
-            SelectedStarSystems.Add(system);
-        }
-    }
-
-    private void OnEnable()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else if (Instance != this)
-        {
-            Debug.LogError("Multiple SelectionControllers in scene!");
-            gameObject.SetActive(false);
-            return;
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            else if (Instance != this)
+            {
+                Debug.LogError("Multiple SelectionControllers in scene!");
+                gameObject.SetActive(false);
+                return;
+            }
         }
     }
 }

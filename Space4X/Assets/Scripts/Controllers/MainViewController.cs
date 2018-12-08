@@ -1,60 +1,63 @@
 ﻿using System;
 using UnityEngine;
 
-public class MainViewController : MonoBehaviour
+namespace Space4X.Controllers
 {
-    public static MainViewController Instance;
-
-    public GameObject GalaxyViewGO;
-
-    public GameObject SystemViewGO;
-
-    public event Action<MainView> OnMainViewChange;
-
-    public enum MainView
+    public class MainViewController : MonoBehaviour
     {
-        Galaxy,
-        System
-    }
+        public static MainViewController Instance;
 
-    public MainView CurrentMainView { get; protected set; }
+        public GameObject GalaxyViewGO;
 
+        public GameObject SystemViewGO;
 
-    public void ShowGalaxyView()
-    {
-        SystemViewGO.SetActive(false);
-        GalaxyViewGO.SetActive(true);
-        CurrentMainView = MainView.Galaxy;
-        RaiseOnMainViewChange();
-    }
+        public event Action<MainView> OnMainViewChange;
 
-    public void ShowSystemView()
-    {
-        GalaxyViewGO.SetActive(false);
-        SystemViewGO.SetActive(true);
-        CurrentMainView = MainView.System;
-        RaiseOnMainViewChange();
-    }
-
-    protected void RaiseOnMainViewChange()
-    {
-        if (OnMainViewChange != null)
+        public enum MainView
         {
-            OnMainViewChange(CurrentMainView);
+            Galaxy,
+            System
         }
-    }
 
-    private void OnEnable()
-    {
-        if (Instance == null)
+        public MainView CurrentMainView { get; protected set; }
+
+
+        public void ShowGalaxyView()
         {
-            Instance = this;
+            SystemViewGO.SetActive(false);
+            GalaxyViewGO.SetActive(true);
+            CurrentMainView = MainView.Galaxy;
+            RaiseOnMainViewChange();
         }
-        else if (Instance != this)
+
+        public void ShowSystemView()
         {
-            Debug.LogError("Multiple MainViewControllers in scene!");
-            gameObject.SetActive(false);
-            return;
+            GalaxyViewGO.SetActive(false);
+            SystemViewGO.SetActive(true);
+            CurrentMainView = MainView.System;
+            RaiseOnMainViewChange();
+        }
+
+        protected void RaiseOnMainViewChange()
+        {
+            if (OnMainViewChange != null)
+            {
+                OnMainViewChange(CurrentMainView);
+            }
+        }
+
+        private void OnEnable()
+        {
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            else if (Instance != this)
+            {
+                Debug.LogError("Multiple MainViewControllers in scene!");
+                gameObject.SetActive(false);
+                return;
+            }
         }
     }
 }

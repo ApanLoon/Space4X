@@ -1,22 +1,25 @@
 ﻿using UnityEngine;
 
-public class ButtonToggle : MonoBehaviour
+namespace Space4X.Views.UI
 {
-    [SerializeField] protected GameObject ActiveGraphic;
-
-    public bool IsToggleOn { get; protected set; }
-
-    public void SetToggle(bool isToggleOn)
+    public class ButtonToggle : MonoBehaviour
     {
-        IsToggleOn = isToggleOn;
-        if (ActiveGraphic != null)
+        [SerializeField] protected GameObject ActiveGraphic;
+
+        public bool IsToggleOn { get; protected set; }
+
+        public void SetToggle(bool isToggleOn)
         {
-            ActiveGraphic.SetActive(isToggleOn);
+            IsToggleOn = isToggleOn;
+            if (ActiveGraphic != null)
+            {
+                ActiveGraphic.SetActive(isToggleOn);
+            }
         }
-    }
 
-    public void Toggle()
-    {
-        SetToggle(!IsToggleOn);
+        public void Toggle()
+        {
+            SetToggle(!IsToggleOn);
+        }
     }
 }

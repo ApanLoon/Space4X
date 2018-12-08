@@ -1,19 +1,22 @@
-﻿
+﻿using Space4X.Controllers;
 using UnityEngine;
 using UnityEngine.UI;
 
-//[RequireComponent(typeof(Text))]
-public class TimePanel : MonoBehaviour
+namespace Space4X.Views.UI
 {
-    protected Text TimeText;
+    [RequireComponent(typeof(Text))]
+    public class TimePanel : MonoBehaviour
+    {
+        protected Text TimeText;
 
-	private void Start()
-	{
-	    TimeText =  GetComponent<Text>();
-	}
+        private void Start()
+        {
+            TimeText =  GetComponent<Text>();
+        }
 
-    private void Update()
-	{
-	    TimeText.text = TimeController.Instance.CurrentTime.ToString();
-	}
+        private void Update()
+        {
+            TimeText.text = TimeController.Instance.CurrentTime.ToString();
+        }
+    }
 }

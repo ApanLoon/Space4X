@@ -1,19 +1,23 @@
-﻿using UnityEngine;
+﻿using Space4X.Controllers;
+using UnityEngine;
 
-public class MainViewPanel : MonoBehaviour
+namespace Space4X.Views.UI
 {
-    [SerializeField] protected ButtonToggle GalaxyViewToggle;
-    [SerializeField] protected ButtonToggle SystemViewToggle;
-
-    private void Start()
+    public class MainViewPanel : MonoBehaviour
     {
-        MainViewController.Instance.OnMainViewChange += OnMainViewChange;
-        OnMainViewChange(MainViewController.Instance.CurrentMainView);
-    }
+        [SerializeField] protected ButtonToggle GalaxyViewToggle;
+        [SerializeField] protected ButtonToggle SystemViewToggle;
 
-    private void OnMainViewChange(MainViewController.MainView view)
-    {
-        GalaxyViewToggle.SetToggle(view == MainViewController.MainView.Galaxy);
-        SystemViewToggle.SetToggle(view == MainViewController.MainView.System);
+        private void Start()
+        {
+            MainViewController.Instance.OnMainViewChange += OnMainViewChange;
+            OnMainViewChange(MainViewController.Instance.CurrentMainView);
+        }
+
+        private void OnMainViewChange(MainViewController.MainView view)
+        {
+            GalaxyViewToggle.SetToggle(view == MainViewController.MainView.Galaxy);
+            SystemViewToggle.SetToggle(view == MainViewController.MainView.System);
+        }
     }
 }
