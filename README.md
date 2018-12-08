@@ -1,5 +1,5 @@
 # Space4X
-A 4X space game
+A 4X space game - Inspired by Project Caprica by [quill18creates](https://www.youtube.com/channel/UCPXOQq7PWh5OdCwEO60Y8jQ)
 
 Simulator Concepts
 ==================
