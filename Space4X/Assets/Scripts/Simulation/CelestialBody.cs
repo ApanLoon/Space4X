@@ -3,6 +3,6 @@
     [System.Serializable]
     public class CelestialBody
     {
-
+        public string Name;
     }
 }
