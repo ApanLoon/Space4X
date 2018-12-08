@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 //[RequireComponent(typeof(Text))]
-public class TimeView : MonoBehaviour
+public class TimePanel : MonoBehaviour
 {
     protected Text TimeText;
 

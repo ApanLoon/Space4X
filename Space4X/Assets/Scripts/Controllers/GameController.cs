@@ -10,8 +10,12 @@ public class GameController : MonoBehaviour
     public void NewGame()
     {
         CurrentGalaxy = new Galaxy(GalaxyType.Spiral, GalaxySize.Small);
+
+        // Select home system and go into system view:
         SelectionController.Instance.Select(CurrentGalaxy.StarSystems[0]);
-        MainViewController.Instance.ShowSystemView();
+        //MainViewController.Instance.ShowSystemView();
+        MainViewController.Instance.ShowGalaxyView();
+
     }
 
     private void OnEnable()
