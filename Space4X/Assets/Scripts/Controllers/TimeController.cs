@@ -14,6 +14,7 @@ public class TimeController : MonoBehaviour
     public bool IsPaused { get; private set; }
 
     public event Action<float> OnTick;
+    public event Action<bool, Speed> OnTimeScaleChanged;
 
     public enum Speed
     {
@@ -29,12 +30,14 @@ public class TimeController : MonoBehaviour
     {
         IsPaused = true;
         Time.timeScale = 0f;
+        RaiseTimeScaleChangedEvent();
     }
 
     public void Resume()
     {
         IsPaused = false;
         Time.timeScale = TimeScales[CurrentSpeed];
+        RaiseTimeScaleChangedEvent();
     }
 
     public void TogglePause()
@@ -52,6 +55,7 @@ public class TimeController : MonoBehaviour
     {
         CurrentSpeed = speed;
         Resume();
+        RaiseTimeScaleChangedEvent();
     }
 
     public void SetSpeed(int speed)
@@ -67,6 +71,14 @@ public class TimeController : MonoBehaviour
         { Speed.Fastest, 10f}
     };
     protected float TimeScale;
+
+    protected void RaiseTimeScaleChangedEvent()
+    {
+        if (OnTimeScaleChanged != null)
+        {
+            OnTimeScaleChanged(IsPaused, CurrentSpeed);
+        }
+    }
 
 	private void OnEnable()
 	{

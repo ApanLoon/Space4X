@@ -10,9 +10,16 @@ public class TimeView : MonoBehaviour
 	private void Start()
 	{
 	    TimeText =  GetComponent<Text>();
+
+	    TimeController.Instance.OnTimeScaleChanged += OnTimeScaleChanged;
 	}
-	
-	private void Update()
+
+    protected void OnTimeScaleChanged(bool isPaused, TimeController.Speed speed)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    private void Update()
 	{
 	    TimeText.text = TimeController.Instance.CurrentTime.ToString();
 	}

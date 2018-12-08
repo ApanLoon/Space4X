@@ -1009,6 +1009,7 @@ GameObject:
   - component: {fileID: 859680660}
   - component: {fileID: 859680659}
   - component: {fileID: 859680658}
+  - component: {fileID: 859680661}
   m_Layer: 5
   m_Name: FasterButton
   m_TagString: Untagged
@@ -1121,6 +1122,20 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 859680656}
   m_CullTransparentMesh: 0
+--- !u!114 &859680661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 859680656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7a7990195ec9804d8aed78fea7d6400, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActiveColour: {r: 0, g: 0, b: 0, a: 0}
+  InactiveColour: {r: 0, g: 0, b: 0, a: 0}
+  IsActive: 0
 --- !u!1 &1224340253
 GameObject:
   m_ObjectHideFlags: 0
@@ -1850,6 +1865,7 @@ GameObject:
   - component: {fileID: 1823402186}
   - component: {fileID: 1823402185}
   - component: {fileID: 1823402184}
+  - component: {fileID: 1823402187}
   m_Layer: 5
   m_Name: FastestButton
   m_TagString: Untagged
@@ -1962,6 +1978,20 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1823402182}
   m_CullTransparentMesh: 0
+--- !u!114 &1823402187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1823402182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7a7990195ec9804d8aed78fea7d6400, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActiveColour: {r: 0, g: 0, b: 0, a: 0}
+  InactiveColour: {r: 0, g: 0, b: 0, a: 0}
+  IsActive: 0
 --- !u!1 &1857796877
 GameObject:
   m_ObjectHideFlags: 0
@@ -1973,6 +2003,7 @@ GameObject:
   - component: {fileID: 1857796881}
   - component: {fileID: 1857796880}
   - component: {fileID: 1857796879}
+  - component: {fileID: 1857796882}
   m_Layer: 5
   m_Name: FastButton
   m_TagString: Untagged
@@ -2085,6 +2116,20 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1857796877}
   m_CullTransparentMesh: 0
+--- !u!114 &1857796882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1857796877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7a7990195ec9804d8aed78fea7d6400, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActiveColour: {r: 0, g: 0, b: 0, a: 0}
+  InactiveColour: {r: 0, g: 0, b: 0, a: 0}
+  IsActive: 0
 --- !u!1 &1976079786
 GameObject:
   m_ObjectHideFlags: 0
@@ -2171,6 +2216,7 @@ GameObject:
   - component: {fileID: 2029647600}
   - component: {fileID: 2029647599}
   - component: {fileID: 2029647598}
+  - component: {fileID: 2029647601}
   m_Layer: 5
   m_Name: PauseButton
   m_TagString: Untagged
@@ -2283,6 +2329,20 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2029647596}
   m_CullTransparentMesh: 0
+--- !u!114 &2029647601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2029647596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7a7990195ec9804d8aed78fea7d6400, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActiveColour: {r: 0, g: 0, b: 0, a: 0}
+  InactiveColour: {r: 0, g: 0, b: 0, a: 0}
+  IsActive: 0
 --- !u!1 &2063462503
 GameObject:
   m_ObjectHideFlags: 0
@@ -2294,6 +2354,7 @@ GameObject:
   - component: {fileID: 2063462507}
   - component: {fileID: 2063462506}
   - component: {fileID: 2063462505}
+  - component: {fileID: 2063462508}
   m_Layer: 5
   m_Name: NormalButton
   m_TagString: Untagged
@@ -2406,3 +2467,17 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2063462503}
   m_CullTransparentMesh: 0
+--- !u!114 &2063462508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2063462503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7a7990195ec9804d8aed78fea7d6400, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActiveColour: {r: 0, g: 0, b: 0, a: 0}
+  InactiveColour: {r: 0, g: 0, b: 0, a: 0}
+  IsActive: 0
