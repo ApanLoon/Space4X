@@ -29,14 +29,12 @@ public class TimeController : MonoBehaviour
     public void Pause()
     {
         IsPaused = true;
-        Time.timeScale = 0f;
         RaiseTimeScaleChangedEvent();
     }
 
     public void Resume()
     {
         IsPaused = false;
-        Time.timeScale = TimeScales[CurrentSpeed];
         RaiseTimeScaleChangedEvent();
     }
 
@@ -66,9 +64,9 @@ public class TimeController : MonoBehaviour
     protected static Dictionary<Speed, float> TimeScales = new Dictionary<Speed, float>()
     {
         { Speed.Normal,  1f},
-        { Speed.Fast,    1.5f},
-        { Speed.Faster,  5f},
-        { Speed.Fastest, 10f}
+        { Speed.Fast,    10f},
+        { Speed.Faster,  100f},
+        { Speed.Fastest, 1000f}
     };
     protected float TimeScale;
 
@@ -100,11 +98,12 @@ public class TimeController : MonoBehaviour
             return;
         }
 
-        CurrentTime += Time.deltaTime;
+        float deltaTime = Time.deltaTime * TimeScales[CurrentSpeed];
+        CurrentTime += deltaTime;
 
         if (OnTick != null)
         {
-            OnTick(Time.deltaTime);
+            OnTick(deltaTime);
         }
     }
 }

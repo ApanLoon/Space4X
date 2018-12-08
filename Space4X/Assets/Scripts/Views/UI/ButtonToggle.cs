@@ -1,21 +1,22 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
-[RequireComponent(typeof(Button))]
 public class ButtonToggle : MonoBehaviour
 {
-    protected Button B;
-    public Color ActiveColour;
-    public Color InactiveColour;
+    [SerializeField] protected GameObject ActiveGraphic;
 
-    public bool IsActive;
+    public bool IsToggleOn { get; protected set; }
 
-    public void SetActive(bool isActive)
+    public void SetToggle(bool isToggleOn)
     {
-
+        IsToggleOn = isToggleOn;
+        if (ActiveGraphic != null)
+        {
+            ActiveGraphic.SetActive(isToggleOn);
+        }
     }
-    private void OnEnable()
+
+    public void Toggle()
     {
-        B = gameObject.GetComponent<Button>();
+        SetToggle(!IsToggleOn);
     }
 }
